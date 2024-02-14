@@ -8,10 +8,11 @@ const api_keys =
 var ocid = "";
 const url = "https://open.api.nexon.com/maplestory/";
 
-const button = document.getElementById("search");
+const button = document.getElementById("search_btn");
 button.addEventListener("click", function () {
   getDate();
   getOcid(document.getElementById("name").value);
+  document.getElementById("name").value = "";
 });
 
 function getDate() {
