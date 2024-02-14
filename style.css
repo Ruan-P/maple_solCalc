@@ -4,3 +4,8 @@ body{
     font-family: 'Pretendard';
     font-style: serif;
 }
+
+.app{
+    margin: 0 auto;
+    align-content: center;
+}
