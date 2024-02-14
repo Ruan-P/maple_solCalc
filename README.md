@@ -1,4 +1,5 @@
 # KMS MapleStory Upgrade Requriemts Items Calculator for Hexa Skills
+(Test Page)[https://ruan-p.github.io/maple_solCalc]
 
 >Worked On GitHub Dev Web  
 >>For dev experiece project, only for study.
