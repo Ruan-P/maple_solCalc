@@ -146,5 +146,79 @@
         "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
       }
     ]
+  },
+  {
+    "name": "블래스터",
+    "skills": [
+      {
+        "core_name": "파이널 디스트로이어",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPEMA.png"
+      },
+      {
+        "core_name": "매그넘 펀치 VI/더블 팡 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPBMA.png"
+      },
+      {
+        "core_name": "릴리즈 파일 벙커 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPBMC.png"
+      },
+      {
+        "core_name": "벙커 버스터 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOI.png"
+      },
+      {
+        "core_name": "발칸 펀치 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOJ.png"
+      },
+      {
+        "core_name": "버닝 브레이커 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAPA.png"
+      },
+      {
+        "core_name": "애프터이미지 쇼크 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAPB.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name": "아크",
+    "skills": [
+      {
+        "core_name": "가장 오래된 심연",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPEMA.png"
+      },
+      {
+        "core_name": "플레인 차지드라이브 VI/스칼렛 차지드라이브 VI/거스트 차지드라이브 VI/어비스 차지드라이브 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPBMA.png"
+      },
+      {
+        "core_name": "지워지지 않는 상처 VI/채워지지 않는 굶주림 VI/걷잡을 수 없는 혼돈 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPBOB.png"
+      },
+      {
+        "core_name": "근원의 기억 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALC.png"
+      },
+      {
+        "core_name": "인피니티 스펠 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALD.png"
+      },
+      {
+        "core_name": "새어 나오는 악몽/새어 나오는 흉몽 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALE.png"
+      },
+      {
+        "core_name": "영원히 굶주리는 짐승 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALF.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
   }
 ]

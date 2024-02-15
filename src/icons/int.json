@@ -1,39 +1,120 @@
 [
-    {
-      "name": "비숍",
-      "skills": [
-        {
-          "core_name": "홀리 어드밴트",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPEMA.png"
-        },
-        {
-          "core_name": "엔젤레이 VI",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPBMA.png"
-        },
-        {
-          "core_name": "빅뱅 VI/트라이엄프 페더 VI",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPBMC.png"
-        },
-        {
-          "core_name": "프레이 강화",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOA.png"
-        },
-        {
-          "core_name": "엔젤 오브 리브라 강화",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOB.png"
-        },
-        {
-          "core_name": "피스메이커 강화",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOC.png"
-        },
-        {
-          "core_name": "디바인 퍼니시먼트 강화",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOD.png"
-        },
-        {
-          "core_name": "솔 야누스",
-          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
-        }
-      ]
-    }
-  ]
+  {
+    "name": "비숍",
+    "skills": [
+      {
+        "core_name": "홀리 어드밴트",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPEMA.png"
+      },
+      {
+        "core_name": "엔젤레이 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPBMA.png"
+      },
+      {
+        "core_name": "빅뱅 VI/트라이엄프 페더 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPBMC.png"
+      },
+      {
+        "core_name": "프레이 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOA.png"
+      },
+      {
+        "core_name": "엔젤 오브 리브라 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOB.png"
+      },
+      {
+        "core_name": "피스메이커 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOC.png"
+      },
+      {
+        "core_name": "디바인 퍼니시먼트 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOD.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name": "썬콜",
+    "skills": [
+      {
+        "core_name": "프로즌 라이트닝",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAJDPEMA.png"
+      },
+      {
+        "core_name": "체인 라이트닝 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAJDPBMA.png"
+      },
+      {
+        "core_name": "프로즌 오브 VI/블리자드 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAJDPBMC.png"
+      },
+      {
+        "core_name": "아이스 에이지 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNG.png"
+      },
+      {
+        "core_name": "썬더 브레이크 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNH.png"
+      },
+      {
+        "core_name": "스피릿 오브 스노우 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNI.png"
+      },
+      {
+        "core_name": "주피터 썬더 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNJ.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "키네시스",
+    "skills" : [
+      {
+        "core_name": "어나더 렐름",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDPEMA.png"
+
+      },
+      {
+        "core_name": "얼티메이트-메테리얼 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDPBMA.png"
+
+      },
+      {
+        "core_name": "싸이킥 그랩 VI/얼티메이트-싸이킥 샷 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDOBMB.png"
+
+      },
+      {
+        "core_name": "싸이킥 토네이도 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJG.png"
+
+      },
+      {
+        "core_name": "얼티메이트-무빙 매터 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJH.png"
+
+      },
+      {
+        "core_name": "얼티메이트-싸이킥 불릿 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJI.png"
+
+      },
+      {
+        "core_name": "로 오브 그라비티 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJJ.png"
+
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  }
+]
