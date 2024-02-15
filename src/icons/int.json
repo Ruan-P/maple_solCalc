@@ -1,0 +1,39 @@
+[
+    {
+      "name": "비숍",
+      "skills": [
+        {
+          "core_name": "홀리 어드밴트",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPEMA.png"
+        },
+        {
+          "core_name": "엔젤레이 VI",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPBMA.png"
+        },
+        {
+          "core_name": "빅뱅 VI/트라이엄프 페더 VI",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAIDPBMC.png"
+        },
+        {
+          "core_name": "프레이 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOA.png"
+        },
+        {
+          "core_name": "엔젤 오브 리브라 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOB.png"
+        },
+        {
+          "core_name": "피스메이커 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOC.png"
+        },
+        {
+          "core_name": "디바인 퍼니시먼트 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOD.png"
+        },
+        {
+          "core_name": "솔 야누스",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+        }
+      ]
+    }
+  ]

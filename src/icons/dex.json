@@ -1,0 +1,39 @@
+[
+    {
+      "name": "카인",
+      "skills": [
+        {
+          "core_name": "어나일레이션",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPEMA.png"
+        },
+        {
+          "core_name": "폴링 더스트 VI/포이즌 니들 VI",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPBMA.png"
+        },
+        {
+          "core_name": "스트라이크 애로우 VI/스캐터링 샷 VI/테어링 나이프 VI/체인 시클 VI",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPBMH.png"
+        },
+        {
+          "core_name": "드래곤 버스트 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIA.png"
+        },
+        {
+          "core_name": "페이탈 블리츠 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIB.png"
+        },
+        {
+          "core_name": "타나토스 디센트 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIC.png"
+        },
+        {
+          "core_name": "그립 오브 애거니 강화",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAID.png"
+        },
+        {
+          "core_name": "솔 야누스",
+          "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+        }
+      ]
+    }
+  ]

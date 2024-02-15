@@ -1,0 +1,150 @@
+[
+  {
+    "name": "아델",
+    "skills": [
+      {
+        "core_name": "마에스트로",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPEMA.png"
+      },
+      {
+        "core_name": "디바이드 VI/샤드 VI/원더 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPBMA.png"
+      },
+      {
+        "core_name": "오더 VI/트레드 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPBME.png"
+      },
+      {
+        "core_name": "루인 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKA.png"
+      },
+      {
+        "core_name": "인피니트 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKB.png"
+      },
+      {
+        "core_name": "리스토어 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKC.png"
+      },
+      {
+        "core_name": "스톰 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKD.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name": "바이퍼",
+    "skills": [
+      {
+        "core_name": "리버레이트 넵투누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDPEMA.png"
+      },
+      {
+        "core_name": "피스트 인레이지 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDPBMA.png"
+      },
+      {
+        "core_name": "씨 서펜트 VI/씨 서펜트 인레이지VI/씨 서펜트 버스트VI/전함 노틸러스 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDOBME.png"
+      },
+      {
+        "core_name": "라이트닝 폼 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBII.png"
+      },
+      {
+        "core_name": "서펜트 스크류 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBIJ.png"
+      },
+      {
+        "core_name": "퓨리어스 차지 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJA.png"
+      },
+      {
+        "core_name": "하울링 피스트 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJB.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name": "캐논슈터",
+    "skills": [
+      {
+        "core_name": "슈퍼 캐논 익스플로젼",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPEMA.png"
+      },
+      {
+        "core_name": "캐논 버스터 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPBMA.png"
+      },
+      {
+        "core_name": "캐논 바주카 VI/미니 캐논볼 VI/마그네틱 앵커 VI/전함 노틸러스 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPBMB.png"
+      },
+      {
+        "core_name": "빅 휴즈 기간틱 캐논볼 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJG.png"
+      },
+      {
+        "core_name": "ICBM 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJH.png"
+      },
+      {
+        "core_name": "스페셜 몽키 에스코트 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJI.png"
+      },
+      {
+        "core_name": "풀 메이커 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJJ.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name": "소울마스터",
+    "skills": [
+      {
+        "core_name": "아스트랄 블리츠",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPEMA.png"
+      },
+      {
+        "core_name": "솔라 슬래시 VI/루나 디바이드 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPDMA.png"
+      },
+      {
+        "core_name": "코스믹 샤워 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPBMC.png"
+      },
+      {
+        "core_name": "코스모스 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKA.png"
+      },
+      {
+        "core_name": "엘리시온 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKB.png"
+      },
+      {
+        "core_name": "소울 이클립스 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKC.png"
+      },
+      {
+        "core_name": "플레어 슬래시 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKD.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  }
+]
