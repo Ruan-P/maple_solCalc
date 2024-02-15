@@ -1,0 +1,88 @@
+{
+    "date": "2024-02-14T00:00+09:00",
+    "character_hexa_core_equipment": [
+        {
+            "hexa_core_name": "리버레이트 넵투누스",
+            "hexa_core_level": 10,
+            "hexa_core_type": "스킬 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "리버레이트 넵투누스"
+                }
+            ]
+        },
+        {
+            "hexa_core_name": "피스트 인레이지 VI",
+            "hexa_core_level": 19,
+            "hexa_core_type": "마스터리 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "피스트 인레이지 VI"
+                }
+            ]
+        },
+        {
+            "hexa_core_name": "씨 서펜트 VI/씨 서펜트 인레이지VI/씨 서펜트 버스트VI/전함 노틸러스 VI",
+            "hexa_core_level": 1,
+            "hexa_core_type": "마스터리 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "씨 서펜트 VI"
+                },
+                {
+                    "hexa_skill_id": "전함 노틸러스 VI"
+                }
+            ]
+        },
+        {
+            "hexa_core_name": "라이트닝 폼 강화",
+            "hexa_core_level": 4,
+            "hexa_core_type": "강화 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "라이트닝 폼 강화"
+                }
+            ]
+        },
+        {
+            "hexa_core_name": "서펜트 스크류 강화",
+            "hexa_core_level": 19,
+            "hexa_core_type": "강화 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "서펜트 스크류 강화"
+                }
+            ]
+        },
+        {
+            "hexa_core_name": "퓨리어스 차지 강화",
+            "hexa_core_level": 1,
+            "hexa_core_type": "강화 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "퓨리어스 차지 강화"
+                }
+            ]
+        },
+        {
+            "hexa_core_name": "하울링 피스트 강화",
+            "hexa_core_level": 4,
+            "hexa_core_type": "강화 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "하울링 피스트 강화"
+                }
+            ]
+        },
+        {
+            "hexa_core_name": "솔 야누스",
+            "hexa_core_level": 1,
+            "hexa_core_type": "공용 코어",
+            "linked_skill": [
+                {
+                    "hexa_skill_id": "솔 야누스"
+                }
+            ]
+        }
+    ]
+}
