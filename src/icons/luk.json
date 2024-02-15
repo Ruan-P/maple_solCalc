@@ -220,5 +220,116 @@
         "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
       }
     ]
+  },
+  {
+    "name" : "제논",
+    "skills" : [
+      {
+        "hexa_core_name": "아티피셜 에볼루션",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPEMA.png"
+      },
+      {
+        "hexa_core_name": "퍼지롭 매스커레이드 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPBMA.png"
+      },
+      {
+        "hexa_core_name": "트라이앵글 포메이션 VI/홀로그램 그래피티 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPBMH.png"
+      },
+      {
+        "hexa_core_name": "메가 스매셔 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOE.png"
+      },
+      {
+        "hexa_core_name": "오버로드 모드 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOF.png"
+      },
+      {
+        "hexa_core_name": "홀로그램 그래피티 : 융합 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOG.png"
+      },
+      {
+        "hexa_core_name": "포톤 레이 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOH.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "나이트로드",
+    "skills" : [
+      {
+        "core_name": "생사여탈",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPGKDPEMA.png"
+      },
+      {
+        "core_name": "쿼드러플 스로우 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPGKDPBMA.png"
+      },
+      {
+        "core_name": "마크 오브 어쌔신 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPGKDPBMC.png"
+      },
+      {
+        "core_name": "스프레드 스로우 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPG.png"
+      },
+      {
+        "core_name": "풍마수리검 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPH.png"
+      },
+      {
+        "core_name": "다크로드의 비전서 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPI.png"
+      },
+      {
+        "core_name": "스로우 블래스팅 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPJ.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "팬텀",
+    "skills" : [
+      {
+        "core_name": "디파잉 페이트",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNGKDPEMA.png"
+      },
+      {
+        "core_name": "템페스트 오브 카드 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNGKDPBMA.png"
+      },
+      {
+        "core_name": "얼티밋 드라이브 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNGKDPBMB.png"
+      },
+      {
+        "core_name": "조커 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFC.png"
+      },
+      {
+        "core_name": "블랙잭 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFD.png"
+      },
+      {
+        "core_name": "마크 오브 팬텀 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFE.png"
+      },
+      {
+        "core_name": "리프트 브레이크 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFF.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
   }
 ]

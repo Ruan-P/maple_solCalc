@@ -37,7 +37,7 @@
     ]
   },
   {
-    "name": "썬콜",
+    "name": "아크메이지(썬, 콜)",
     "skills": [
       {
         "core_name": "프로즌 라이트닝",
@@ -110,6 +110,265 @@
         "core_name": "로 오브 그라비티 강화",
         "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJJ.png"
 
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "아크메이지(불, 독)",
+    "skills" : [
+      {
+        "core_name": "인페르날 베놈",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAKDPEMA.png"
+      },
+      {
+        "core_name": "플레임 스윕 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAKDPBMA.png"
+      },
+      {
+        "core_name": "플레임 헤이즈 VI/미스트 이럽션 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPAKDPBMD.png"
+      },
+      {
+        "core_name": "도트 퍼니셔 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNC.png"
+      },
+      {
+        "core_name": "포이즌 노바 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBND.png"
+      },
+      {
+        "core_name": "퓨리 오브 이프리트 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNE.png"
+      },
+      {
+        "core_name": "포이즌 체인 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNF.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "플레임위자드",
+    "skills" : [
+      {
+        "core_name": "이터니티",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFOAKDPEMA.png"
+      },
+      {
+        "core_name": "오비탈 플레임 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFOAKDPBMA.png"
+      },
+      {
+        "core_name": "블레이징 익스팅션 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFOAKDPBMH.png"
+      },
+      {
+        "core_name": "블레이징 오비탈 플레임 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKE.png"
+      },
+      {
+        "core_name": "플레임 디스차지 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKF.png"
+      },
+      {
+        "core_name": "인피니티 플레임 서클 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKG.png"
+      },
+      {
+        "core_name": "샐리맨더 미스칩 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKH.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "배틀메이지",
+    "skills" : [
+      {
+        "core_name": "크림슨 팩텀",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMAKDPEMA.png"
+      },
+      {
+        "core_name": "데스 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMAKDPBMA.png"
+      },
+      {
+        "core_name": "피니쉬 블로우 VI/배틀킹 바 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMAKDPBMB.png"
+      },
+      {
+        "core_name": "유니온 오라 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKANC.png"
+      },
+      {
+        "core_name": "블랙 매직 알터 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAND.png"
+      },
+      {
+        "core_name": "그림 리퍼 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKANE.png"
+      },
+      {
+        "core_name": "어비셜 라이트닝 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKANF.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "에반",
+    "skills" : [
+      {
+        "core_name": "조디악 버스트",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNAJHPEMA.png"
+      },
+      {
+        "core_name": "서클 오브 마나 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNAJHPBMA.png"
+      },
+      {
+        "core_name": "드래곤 스위프트 VI/서클 오브 썬더 VI/스위프트 오브 썬더 VI/스위프트 오브 윈드 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNAJHPBMD.png"
+      },
+      {
+        "core_name": "엘리멘탈 블래스트 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBEE.png"
+      },
+      {
+        "core_name": "드래곤 브레이크 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBEF.png"
+      },
+      {
+        "core_name": "조디악 레이 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBEG.png"
+      },
+      {
+        "core_name": "스파이럴 오브 마나 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBEH.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "루미너스",
+    "skills" : [
+      {
+        "core_name": "하모닉 패러독스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNFKDPEMA.png"
+      },
+      {
+        "core_name": "앱솔루트 킬 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNFKDPBMA.png"
+      },
+      {
+        "core_name": "라이트 리플렉션 VI/엔드리스 다크니스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNFKDPBMB.png"
+      },
+      {
+        "core_name": "진리의 문 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAMA.png"
+      },
+      {
+        "core_name": "퍼니싱 리소네이터 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAMB.png"
+      },
+      {
+        "core_name": "빛과 어둠의 세례 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAMC.png"
+      },
+      {
+        "core_name": "리버레이션 오브 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAMD.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "일리움",
+    "skills" : [
+      {
+        "core_name": "언리미티드 크리스탈",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKAKDPEMA.png"
+      },
+      {
+        "core_name": "크래프트:자벨린 VI/글로리 윙:자벨린 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKAKDPBMA.png"
+      },
+      {
+        "core_name": "리액션:도미네이션 VI/리액션:디스트럭션 VI/글로리 윙:모탈 윙비트 VI",            
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKAKDPBMI.png"
+      },
+      {
+        "core_name": "크리스탈 이그니션 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKE.png"
+      },
+      {
+        "core_name": "그람홀더 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKF.png"
+      },
+      {
+        "core_name": "소울 오브 크리스탈 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKG.png"
+      },
+      {
+        "core_name": "크리스탈 게이트 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKH.png"
+      },
+      {
+        "core_name": "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "라라",
+    "skills" : [
+      {
+        "core_name": "새록새록 꽃누리",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJAKDPEMA.png"
+      },
+      {
+        "core_name": "정기 뿌리기 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJAKDPBMA.png"
+      },
+      {
+        "core_name": "용맥 분출 VI/분출 : 너울이는 강 VI/분출 : 돌개바람 VI/분출 : 해돋이 우물 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJAKDPBMB.png"
+      },
+      {
+        "core_name": "큰 기지개 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALG.png"
+      },
+      {
+        "core_name": "해 강 산 바람 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALH.png"
+      },
+      {
+        "core_name": "용솟음치는 정기 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALI.png"
+      },
+      {
+        "core_name": "산등성이 굽이굽이 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALJ.png"
       },
       {
         "core_name": "솔 야누스",
