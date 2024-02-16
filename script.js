@@ -1,3 +1,6 @@
+import DB from '/src/db.js'
+import icons from '/src/icon.js'
+
 var dateString = "";
 var jsonHexa = {};
 var coreInfo = new Array();
@@ -56,7 +59,13 @@ function getHexaInfo() {
           data.hexa_core_type,
         ];
         coreInfo.push(inputData);
+
       });
     }, console.log(coreInfo))
     .catch((error) => console.log(error));
+}
+
+
+function compareSkill() {
+  
 }
