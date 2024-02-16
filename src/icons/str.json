@@ -553,5 +553,79 @@
         "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
       }
     ]
+  },
+  {
+    "name" : "스트라이커",
+    "skills" : [
+      {
+        "core_name": "뇌명벽해파",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFOHKDPEMA.png"
+      },
+      {
+        "core_name": "섬멸 VI/낙뢰",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFOHKDPBMA.png"
+      },
+      {
+        "core_name": "벽력 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFOHKDPBMD.png"
+      },
+      {
+        "core_name": "신뇌합일 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBLG.png"
+      },
+      {
+        "core_name": "교아탄 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBLH.png"
+      },
+      {
+        "core_name": "뇌신창격 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBLI.png"
+      },
+      {
+        "core_name": "창뇌연격 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBLJ.png"
+      },
+      {
+        "core_name" : "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
+  },
+  {
+    "name" : "은월",
+    "skills" : [
+      {
+        "core_name": "호신강림",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNHKDPEMA.png"
+      },
+      {
+        "core_name": "귀참 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNHKDPBMA.png"
+      },
+      {
+        "core_name": "소혼 장막 VI",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KFNHKDPBMB.png"
+      },
+      {
+        "core_name": "정령 집속 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFG.png"
+      },
+      {
+        "core_name": "귀문진 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFH.png"
+      },
+      {
+        "core_name": "진 귀참 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFI.png"
+      },
+      {
+        "core_name": "파쇄 연권 강화",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBFJ.png"
+      },
+      {
+        "core_name" : "솔 야누스",
+        "skill_icon": "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png"
+      }
+    ]
   }
 ]
