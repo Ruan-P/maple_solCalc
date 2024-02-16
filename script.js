@@ -1,6 +1,6 @@
 var dateString = "";
 var jsonHexa = {};
-var coreInfo = new Array(new Array());
+var coreInfo = new Array();
 
 const api_keys =
   "live_2785d54ef3df048746d128e9eddfa161acb6ced01ccf4b2413854d3979798bc4669635cb992e9abcce45cb52ba5e214f";
@@ -49,15 +49,13 @@ function getHexaInfo() {
     .then((data) => {
       jsonHexa = data;
       // console.table(data.character_hexa_core_equipment);
-      jsonHexa.character_hexa_core_equipment.forEach((data, index) => {
-        var inputData =
-          data.hexa_core_name +
-          ", " +
-          data.hexa_core_level +
-          ", " +
-          data.hexa_core_type;
-        console.log(inputData);
-        coreInfo[index].push(inputData);
+      jsonHexa.character_hexa_core_equipment.forEach((data) => {
+        var inputData = [
+          data.hexa_core_name,
+          data.hexa_core_level,
+          data.hexa_core_type,
+        ];
+        coreInfo.push(inputData);
       });
     }, console.log(coreInfo))
     .catch((error) => console.log(error));
