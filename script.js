@@ -1,6 +1,9 @@
+import DB from '/src/db.js'
+import icons from '/src/icon.js'
+
 var dateString = "";
-var jsonIcon = {};
 var jsonHexa = {};
+var coreInfo = new Array();
 
 const api_keys =
   "live_2785d54ef3df048746d128e9eddfa161acb6ced01ccf4b2413854d3979798bc4669635cb992e9abcce45cb52ba5e214f";
@@ -33,30 +36,9 @@ function getOcid(name) {
     .then((res) => res.json())
     .then((data) => {
       ocid = data.ocid;
-      getSkillsIcon();
       getHexaInfo();
-    })
-    .catch((error) => console.log(error));
-}
-
-function getSkillsIcon() {
-  var urlString =
-    url +
-    "v1/character/skill?ocid=" +
-    ocid +
-    dateString +
-    "&character_skill_grade=6";
-  fetch(urlString, {
-    headers: {
-      "x-nxopen-api-key": api_keys,
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      jsonIcon = data;
-    })
-    .catch((error) => console.log(error));
+    });
+  // .catch((error) => console.log(error));
 }
 
 function getHexaInfo() {
@@ -68,10 +50,22 @@ function getHexaInfo() {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       jsonHexa = data;
-    })
+      // console.table(data.character_hexa_core_equipment);
+      jsonHexa.character_hexa_core_equipment.forEach((data) => {
+        var inputData = [
+          data.hexa_core_name,
+          data.hexa_core_level,
+          data.hexa_core_type,
+        ];
+        coreInfo.push(inputData);
+
+      });
+    }, console.log(coreInfo))
     .catch((error) => console.log(error));
 }
 
-// document.getElementById("app").innerHTML = "Hello";
+
+function compareSkill() {
+  
+}
