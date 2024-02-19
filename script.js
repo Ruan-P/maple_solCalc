@@ -1,4 +1,5 @@
 var dateString = "";
+var charClass;
 var jsonHexa = {};
 var coreInfo = [];
 let iconData;
@@ -14,6 +15,8 @@ const url = "https://open.api.nexon.com/maplestory/";
 //   document.getElementById("name").value = "";
 // });
 
+getDate();
+getOcid("기솔");
 function getDate() {
   var today = new Date();
   var year = today.getFullYear();
@@ -22,8 +25,8 @@ function getDate() {
   dateString = "&date=" + year + "-" + month + "-" + (day - 1);
 }
 
-function getOcid(name) {
-  var urlString = url + "v1/id?character_name=" + name;
+function getOcid(nickName) {
+  var urlString = url + "v1/id?character_name=" + nickName;
   fetch(urlString, {
     headers: {
       "x-nxopen-api-key": api_keys,
@@ -32,9 +35,22 @@ function getOcid(name) {
     .then((res) => res.json())
     .then((data) => {
       ocid = data.ocid;
+      getClassName();
       getHexaInfo();
     });
   // .catch((error) => console.log(error));
+}
+function getClassName() {
+  var urlString = url + "v1/character/basic?ocid=" + ocid + dateString;
+  fetch(urlString, {
+    headers: {
+      "x-nxopen-api-key": api_keys,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      charClass = data.character_class;
+    });
 }
 
 function getHexaInfo() {
@@ -56,13 +72,14 @@ function getHexaInfo() {
         ];
         coreInfo.push(inputData);
       });
-    }, console.log(coreInfo))
+      console.log(coreInfo);
+      getSkillIcon();
+    })
     .catch((error) => console.log(error));
 }
 
-getSkillIcon("아델");
-
-function getSkillIcon(charClass, coreName) {
+function getSkillIcon() {
+  var found;
   const _sort = {
     0: [
       "히어로",
@@ -120,278 +137,49 @@ function getSkillIcon(charClass, coreName) {
     ],
   };
   for (let i = 0; i < 4; i++) {
-    let found = _sort[i].findIndex((e) => e === charClass);
-    if (found) {
+    found = _sort[i].findIndex((e) => e === charClass);
+    if (found >= 0) {
       var idxCnt = i;
       switch (idxCnt) {
         case 0:
           iconData = [
             {
-              name: "아델",
+              name: "히어로",
               skills: [
                 {
-                  core_name: "마에스트로",
+                  core_name: "스피릿 칼리버",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPEMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPDKDPEMA.png",
                 },
                 {
-                  core_name: "디바이드 VI/샤드 VI/원더 VI",
+                  core_name: "레이징 블로우 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPBMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPDKDPBMA.png",
                 },
                 {
-                  core_name: "오더 VI/트레드 VI",
+                  core_name: "레이지 업라이징 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPBME.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPDKDPBMC.png",
                 },
                 {
-                  core_name: "루인 강화",
+                  core_name: "소드 오브 버닝 소울 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMA.png",
                 },
                 {
-                  core_name: "인피니트 강화",
+                  core_name: "콤보 인스팅트 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKB.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMB.png",
                 },
                 {
-                  core_name: "리스토어 강화",
+                  core_name: "콤보 데스폴트 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKC.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMC.png",
                 },
                 {
-                  core_name: "스톰 강화",
+                  core_name: "소드 일루전 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKD.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "바이퍼",
-              skills: [
-                {
-                  core_name: "리버레이트 넵투누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDPEMA.png",
-                },
-                {
-                  core_name: "피스트 인레이지 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDPBMA.png",
-                },
-                {
-                  core_name:
-                    "씨 서펜트 VI/씨 서펜트 인레이지VI/씨 서펜트 버스트VI/전함 노틸러스 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDOBME.png",
-                },
-                {
-                  core_name: "라이트닝 폼 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBII.png",
-                },
-                {
-                  core_name: "서펜트 스크류 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBIJ.png",
-                },
-                {
-                  core_name: "퓨리어스 차지 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJA.png",
-                },
-                {
-                  core_name: "하울링 피스트 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJB.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "캐논슈터",
-              skills: [
-                {
-                  core_name: "슈퍼 캐논 익스플로젼",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPEMA.png",
-                },
-                {
-                  core_name: "캐논 버스터 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPBMA.png",
-                },
-                {
-                  core_name:
-                    "캐논 바주카 VI/미니 캐논볼 VI/마그네틱 앵커 VI/전함 노틸러스 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPBMB.png",
-                },
-                {
-                  core_name: "빅 휴즈 기간틱 캐논볼 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJG.png",
-                },
-                {
-                  core_name: "ICBM 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJH.png",
-                },
-                {
-                  core_name: "스페셜 몽키 에스코트 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJI.png",
-                },
-                {
-                  core_name: "풀 메이커 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJJ.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "소울마스터",
-              skills: [
-                {
-                  core_name: "아스트랄 블리츠",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPEMA.png",
-                },
-                {
-                  core_name: "솔라 슬래시 VI/루나 디바이드 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPDMA.png",
-                },
-                {
-                  core_name: "코스믹 샤워 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPBMC.png",
-                },
-                {
-                  core_name: "코스모스 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKA.png",
-                },
-                {
-                  core_name: "엘리시온 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKB.png",
-                },
-                {
-                  core_name: "소울 이클립스 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKC.png",
-                },
-                {
-                  core_name: "플레어 슬래시 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKD.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "블래스터",
-              skills: [
-                {
-                  core_name: "파이널 디스트로이어",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPEMA.png",
-                },
-                {
-                  core_name: "매그넘 펀치 VI/더블 팡 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPBMA.png",
-                },
-                {
-                  core_name: "릴리즈 파일 벙커 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPBMC.png",
-                },
-                {
-                  core_name: "벙커 버스터 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOI.png",
-                },
-                {
-                  core_name: "발칸 펀치 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOJ.png",
-                },
-                {
-                  core_name: "버닝 브레이커 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAPA.png",
-                },
-                {
-                  core_name: "애프터이미지 쇼크 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAPB.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "아크",
-              skills: [
-                {
-                  core_name: "가장 오래된 심연",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPEMA.png",
-                },
-                {
-                  core_name:
-                    "플레인 차지드라이브 VI/스칼렛 차지드라이브 VI/거스트 차지드라이브 VI/어비스 차지드라이브 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPBMA.png",
-                },
-                {
-                  core_name:
-                    "지워지지 않는 상처 VI/채워지지 않는 굶주림 VI/걷잡을 수 없는 혼돈 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPBOB.png",
-                },
-                {
-                  core_name: "근원의 기억 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALC.png",
-                },
-                {
-                  core_name: "인피니티 스펠 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALD.png",
-                },
-                {
-                  core_name: "새어 나오는 악몽/새어 나오는 흉몽 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALE.png",
-                },
-                {
-                  core_name: "영원히 굶주리는 짐승 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALF.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMD.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -446,51 +234,6 @@ function getSkillIcon(charClass, coreName) {
               ],
             },
             {
-              name: "히어로",
-              skills: [
-                {
-                  core_name: "스피릿 칼리버",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPDKDPEMA.png",
-                },
-                {
-                  core_name: "레이징 블로우 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPDKDPBMA.png",
-                },
-                {
-                  core_name: "레이지 업라이징 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPDKDPBMC.png",
-                },
-                {
-                  core_name: "소드 오브 버닝 소울 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMA.png",
-                },
-                {
-                  core_name: "콤보 인스팅트 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMB.png",
-                },
-                {
-                  core_name: "콤보 데스폴트 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMC.png",
-                },
-                {
-                  core_name: "소드 일루전 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBMD.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
               name: "다크나이트",
               skills: [
                 {
@@ -536,6 +279,51 @@ function getSkillIcon(charClass, coreName) {
               ],
             },
             {
+              name: "소울마스터",
+              skills: [
+                {
+                  core_name: "아스트랄 블리츠",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPEMA.png",
+                },
+                {
+                  core_name: "솔라 슬래시 VI/루나 디바이드 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPDMA.png",
+                },
+                {
+                  core_name: "코스믹 샤워 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFODKDPBMC.png",
+                },
+                {
+                  core_name: "코스모스 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKA.png",
+                },
+                {
+                  core_name: "엘리시온 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKB.png",
+                },
+                {
+                  core_name: "소울 이클립스 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKC.png",
+                },
+                {
+                  core_name: "플레어 슬래시 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBKD.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
               name: "미하일",
               skills: [
                 {
@@ -572,6 +360,51 @@ function getSkillIcon(charClass, coreName) {
                   core_name: "라이트 오브 커리지 강화",
                   skill_icon:
                     "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAPF.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
+              name: "블래스터",
+              skills: [
+                {
+                  core_name: "파이널 디스트로이어",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPEMA.png",
+                },
+                {
+                  core_name: "매그넘 펀치 VI/더블 팡 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPBMA.png",
+                },
+                {
+                  core_name: "릴리즈 파일 벙커 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMFKDPBMC.png",
+                },
+                {
+                  core_name: "벙커 버스터 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOI.png",
+                },
+                {
+                  core_name: "발칸 펀치 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOJ.png",
+                },
+                {
+                  core_name: "버닝 브레이커 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAPA.png",
+                },
+                {
+                  core_name: "애프터이미지 쇼크 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAPB.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -761,6 +594,51 @@ function getSkillIcon(charClass, coreName) {
               ],
             },
             {
+              name: "아델",
+              skills: [
+                {
+                  core_name: "마에스트로",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPEMA.png",
+                },
+                {
+                  core_name: "디바이드 VI/샤드 VI/원더 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPBMA.png",
+                },
+                {
+                  core_name: "오더 VI/트레드 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKDKDPBME.png",
+                },
+                {
+                  core_name: "루인 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKA.png",
+                },
+                {
+                  core_name: "인피니트 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKB.png",
+                },
+                {
+                  core_name: "리스토어 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKC.png",
+                },
+                {
+                  core_name: "스톰 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKD.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
               name: "제로",
               skills: [
                 {
@@ -797,6 +675,98 @@ function getSkillIcon(charClass, coreName) {
                   core_name: "에고 웨폰 강화",
                   skill_icon:
                     "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJF.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
+              name: "바이퍼",
+              skills: [
+                {
+                  core_name: "리버레이트 넵투누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDPEMA.png",
+                },
+                {
+                  core_name: "피스트 인레이지 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDPBMA.png",
+                },
+                {
+                  core_name:
+                    "씨 서펜트 VI/씨 서펜트 인레이지VI/씨 서펜트 버스트VI/전함 노틸러스 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHKDOBME.png",
+                },
+                {
+                  core_name: "라이트닝 폼 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBII.png",
+                },
+                {
+                  core_name: "서펜트 스크류 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBIJ.png",
+                },
+                {
+                  core_name: "퓨리어스 차지 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJA.png",
+                },
+                {
+                  core_name: "하울링 피스트 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJB.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
+              name: "캐논슈터",
+              skills: [
+                {
+                  core_name: "슈퍼 캐논 익스플로젼",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPEMA.png",
+                },
+                {
+                  core_name: "캐논 버스터 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPBMA.png",
+                },
+                {
+                  core_name:
+                    "캐논 바주카 VI/미니 캐논볼 VI/마그네틱 앵커 VI/전함 노틸러스 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHIDPBMB.png",
+                },
+                {
+                  core_name: "빅 휴즈 기간틱 캐논볼 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJG.png",
+                },
+                {
+                  core_name: "ICBM 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJH.png",
+                },
+                {
+                  core_name: "스페셜 몽키 에스코트 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJI.png",
+                },
+                {
+                  core_name: "풀 메이커 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJJ.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -895,6 +865,53 @@ function getSkillIcon(charClass, coreName) {
                 },
               ],
             },
+            {
+              name: "아크",
+              skills: [
+                {
+                  core_name: "가장 오래된 심연",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPEMA.png",
+                },
+                {
+                  core_name:
+                    "플레인 차지드라이브 VI/스칼렛 차지드라이브 VI/거스트 차지드라이브 VI/어비스 차지드라이브 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPBMA.png",
+                },
+                {
+                  core_name:
+                    "지워지지 않는 상처 VI/채워지지 않는 굶주림 VI/걷잡을 수 없는 혼돈 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKHKDPBOB.png",
+                },
+                {
+                  core_name: "근원의 기억 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALC.png",
+                },
+                {
+                  core_name: "인피니티 스펠 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALD.png",
+                },
+                {
+                  core_name: "새어 나오는 악몽/새어 나오는 흉몽 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALE.png",
+                },
+                {
+                  core_name: "영원히 굶주리는 짐승 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALF.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
           ];
           break;
         case 1:
@@ -981,51 +998,6 @@ function getSkillIcon(charClass, coreName) {
                   core_name: "주피터 썬더 강화",
                   skill_icon:
                     "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBNJ.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "키네시스",
-              skills: [
-                {
-                  core_name: "어나더 렐름",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDPEMA.png",
-                },
-                {
-                  core_name: "얼티메이트-메테리얼 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDPBMA.png",
-                },
-                {
-                  core_name: "싸이킥 그랩 VI/얼티메이트-싸이킥 샷 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDOBMB.png",
-                },
-                {
-                  core_name: "싸이킥 토네이도 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJG.png",
-                },
-                {
-                  core_name: "얼티메이트-무빙 매터 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJH.png",
-                },
-                {
-                  core_name: "얼티메이트-싸이킥 불릿 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJI.png",
-                },
-                {
-                  core_name: "로 오브 그라비티 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJJ.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -1352,48 +1324,43 @@ function getSkillIcon(charClass, coreName) {
                 },
               ],
             },
-          ];
-          break;
-        case 2:
-          iconData = [
             {
-              name: "카인",
+              name: "키네시스",
               skills: [
                 {
-                  core_name: "어나일레이션",
+                  core_name: "어나더 렐름",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPEMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDPEMA.png",
                 },
                 {
-                  core_name: "폴링 더스트 VI/포이즌 니들 VI",
+                  core_name: "얼티메이트-메테리얼 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPBMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDPBMA.png",
                 },
                 {
-                  core_name:
-                    "스트라이크 애로우 VI/스캐터링 샷 VI/테어링 나이프 VI/체인 시클 VI",
+                  core_name: "싸이킥 그랩 VI/얼티메이트-싸이킥 샷 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPBMH.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KELAKDOBMB.png",
                 },
                 {
-                  core_name: "드래곤 버스트 강화",
+                  core_name: "싸이킥 토네이도 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJG.png",
                 },
                 {
-                  core_name: "페이탈 블리츠 강화",
+                  core_name: "얼티메이트-무빙 매터 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIB.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJH.png",
                 },
                 {
-                  core_name: "타나토스 디센트 강화",
+                  core_name: "얼티메이트-싸이킥 불릿 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIC.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJI.png",
                 },
                 {
-                  core_name: "그립 오브 애거니 강화",
+                  core_name: "로 오브 그라비티 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAID.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAJJ.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -1402,43 +1369,47 @@ function getSkillIcon(charClass, coreName) {
                 },
               ],
             },
+          ];
+          break;
+        case 2:
+          iconData = [
             {
-              name: "보우마스터",
+              name: "신궁",
               skills: [
                 {
-                  core_name: "어센던트 셰이드",
+                  core_name: "파이널 에임",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBKDPEMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBJDPEMA.png",
                 },
                 {
-                  core_name: "폭풍의 시 VI",
+                  core_name: "스나이핑 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBKDPBMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBJDPBMA.png",
                 },
                 {
-                  core_name: "애로우 플래터 VI/언카운터블 애로우 VI",
+                  core_name: "피어싱 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBKDPBMC.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBJDPBMF.png",
                 },
                 {
-                  core_name: "애로우 레인 강화",
+                  core_name: "트루 스나이핑 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOE.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOI.png",
                 },
                 {
-                  core_name: "잔영의 시 강화",
+                  core_name: "스플릿 애로우 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOF.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOJ.png",
                 },
                 {
-                  core_name: "퀴버 풀버스트 강화",
+                  core_name: "차지드 애로우 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOG.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPA.png",
                 },
                 {
-                  core_name: "실루엣 미라주 강화",
+                  core_name: "리피팅 크로스보우 카트리지 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOH.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPB.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -1493,42 +1464,42 @@ function getSkillIcon(charClass, coreName) {
               ],
             },
             {
-              name: "신궁",
+              name: "보우마스터",
               skills: [
                 {
-                  core_name: "파이널 에임",
+                  core_name: "어센던트 셰이드",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBJDPEMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBKDPEMA.png",
                 },
                 {
-                  core_name: "스나이핑 VI",
+                  core_name: "폭풍의 시 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBJDPBMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBKDPBMA.png",
                 },
                 {
-                  core_name: "피어싱 VI",
+                  core_name: "애로우 플래터 VI/언카운터블 애로우 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBJDPBMF.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPBKDPBMC.png",
                 },
                 {
-                  core_name: "트루 스나이핑 강화",
+                  core_name: "애로우 레인 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOI.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOE.png",
                 },
                 {
-                  core_name: "스플릿 애로우 강화",
+                  core_name: "잔영의 시 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOJ.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOF.png",
                 },
                 {
-                  core_name: "차지드 애로우 강화",
+                  core_name: "퀴버 풀버스트 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOG.png",
                 },
                 {
-                  core_name: "리피팅 크로스보우 카트리지 강화",
+                  core_name: "실루엣 미라주 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPB.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBOH.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -1675,42 +1646,43 @@ function getSkillIcon(charClass, coreName) {
               ],
             },
             {
-              name: "캡틴",
+              name: "카인",
               skills: [
                 {
-                  core_name: "드레드노트",
+                  core_name: "어나일레이션",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHJDPEMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPEMA.png",
                 },
                 {
-                  core_name: "래피드 파이어 VI",
+                  core_name: "폴링 더스트 VI/포이즌 니들 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHJDPBMA.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPBMA.png",
                 },
                 {
-                  core_name: "배틀쉽 봄버 VI",
+                  core_name:
+                    "스트라이크 애로우 VI/스캐터링 샷 VI/테어링 나이프 VI/체인 시클 VI",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHJDPBMC.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJBKDPBMH.png",
                 },
                 {
-                  core_name: "불릿 파티 강화",
+                  core_name: "드래곤 버스트 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJC.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIA.png",
                 },
                 {
-                  core_name: "데드아이 강화",
+                  core_name: "페이탈 블리츠 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJD.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIB.png",
                 },
                 {
-                  core_name: "노틸러스 어썰트 강화",
+                  core_name: "타나토스 디센트 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJE.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIC.png",
                 },
                 {
-                  core_name: "데스 트리거 강화",
+                  core_name: "그립 오브 애거니 강화",
                   skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJF.png",
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAID.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -1809,103 +1781,57 @@ function getSkillIcon(charClass, coreName) {
                 },
               ],
             },
+            {
+              name: "캡틴",
+              skills: [
+                {
+                  core_name: "드레드노트",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHJDPEMA.png",
+                },
+                {
+                  core_name: "래피드 파이어 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHJDPBMA.png",
+                },
+                {
+                  core_name: "배틀쉽 봄버 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFPHJDPBMC.png",
+                },
+                {
+                  core_name: "불릿 파티 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJC.png",
+                },
+                {
+                  core_name: "데드아이 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJD.png",
+                },
+                {
+                  core_name: "노틸러스 어썰트 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJE.png",
+                },
+                {
+                  core_name: "데스 트리거 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBJF.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
           ];
           break;
         case 3:
           iconData = [
             {
-              name: "호영",
-              skills: [
-                {
-                  core_name: "선기 : 파천황",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJGKDPEMA.png",
-                },
-                {
-                  core_name: "멸화염 : 천 VI/지진쇄 : 지 VI/금고봉 : 인 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJGKDPBOJ.png",
-                },
-                {
-                  core_name: "파초풍 : 천 VI/토파류 : 지 VI/여의선 : 인 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJGKDPBPF.png",
-                },
-                {
-                  core_name: "선기 : 극대 분신난무 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAEA.png",
-                },
-                {
-                  core_name: "권술 : 산령소환 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAEB.png",
-                },
-                {
-                  core_name: "선기 : 강림 괴력난신 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAEC.png",
-                },
-                {
-                  core_name: "선기 : 천지인 환영 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAED.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "칼리",
-              skills: [
-                {
-                  core_name: "헥스 : 샌드스톰",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKGKDPEMA.png",
-                },
-                {
-                  core_name: "아츠 : 플러리 VI/아츠 : 크레센텀 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKGKDPBMA.png",
-                },
-                {
-                  core_name:
-                    "보이드 러쉬 VI/보이드 블리츠 VI/헥스 : 차크람 스플릿 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKGKDPBMD.png",
-                },
-                {
-                  core_name: "헥스 : 판데모니움 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKI.png",
-                },
-                {
-                  core_name: "보이드 버스트 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKJ.png",
-                },
-                {
-                  core_name: "아츠 : 아스트라 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALA.png",
-                },
-                {
-                  core_name: "레조네이트 : 얼티메이텀 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALB.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "도적",
+              name: "듀얼블레이드",
               skills: [
                 {
                   core_name: "카르마 블레이드",
@@ -1941,51 +1867,6 @@ function getSkillIcon(charClass, coreName) {
                   core_name: "헌티드 엣지 강화",
                   skill_icon:
                     "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBIH.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
-              name: "카데나",
-              skills: [
-                {
-                  core_name: "체인아츠:매서커",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJGKDPEMA.png",
-                },
-                {
-                  core_name: "체인아츠:스트로크 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJGKDPBMA.png",
-                },
-                {
-                  core_name: "웨폰 버라이어티 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJGKDPBME.png",
-                },
-                {
-                  core_name: "체인아츠:퓨리 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIE.png",
-                },
-                {
-                  core_name: "A.D 오드넌스 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIF.png",
-                },
-                {
-                  core_name: "체인아츠:메일스트롬 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIG.png",
-                },
-                {
-                  core_name: "웨폰 버라이어티 피날레 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIH.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -2085,51 +1966,6 @@ function getSkillIcon(charClass, coreName) {
               ],
             },
             {
-              name: "제논",
-              skills: [
-                {
-                  hexa_core_name: "아티피셜 에볼루션",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPEMA.png",
-                },
-                {
-                  hexa_core_name: "퍼지롭 매스커레이드 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPBMA.png",
-                },
-                {
-                  hexa_core_name: "트라이앵글 포메이션 VI/홀로그램 그래피티 VI",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPBMH.png",
-                },
-                {
-                  hexa_core_name: "메가 스매셔 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOE.png",
-                },
-                {
-                  hexa_core_name: "오버로드 모드 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOF.png",
-                },
-                {
-                  hexa_core_name: "홀로그램 그래피티 : 융합 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOG.png",
-                },
-                {
-                  hexa_core_name: "포톤 레이 강화",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOH.png",
-                },
-                {
-                  core_name: "솔 야누스",
-                  skill_icon:
-                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
-                },
-              ],
-            },
-            {
               name: "나이트로드",
               skills: [
                 {
@@ -2166,6 +2002,51 @@ function getSkillIcon(charClass, coreName) {
                   core_name: "스로우 블래스팅 강화",
                   skill_icon:
                     "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKBPJ.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
+              name: "제논",
+              skills: [
+                {
+                  hexa_core_name: "아티피셜 에볼루션",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPEMA.png",
+                },
+                {
+                  hexa_core_name: "퍼지롭 매스커레이드 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPBMA.png",
+                },
+                {
+                  hexa_core_name: "트라이앵글 포메이션 VI/홀로그램 그래피티 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFMEKDPBMH.png",
+                },
+                {
+                  hexa_core_name: "메가 스매셔 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOE.png",
+                },
+                {
+                  hexa_core_name: "오버로드 모드 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOF.png",
+                },
+                {
+                  hexa_core_name: "홀로그램 그래피티 : 융합 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOG.png",
+                },
+                {
+                  hexa_core_name: "포톤 레이 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAOH.png",
                 },
                 {
                   core_name: "솔 야누스",
@@ -2219,13 +2100,150 @@ function getSkillIcon(charClass, coreName) {
                 },
               ],
             },
+            {
+              name: "카데나",
+              skills: [
+                {
+                  core_name: "체인아츠:매서커",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJGKDPEMA.png",
+                },
+                {
+                  core_name: "체인아츠:스트로크 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJGKDPBMA.png",
+                },
+                {
+                  core_name: "웨폰 버라이어티 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KFJGKDPBME.png",
+                },
+                {
+                  core_name: "체인아츠:퓨리 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIE.png",
+                },
+                {
+                  core_name: "A.D 오드넌스 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIF.png",
+                },
+                {
+                  core_name: "체인아츠:메일스트롬 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIG.png",
+                },
+                {
+                  core_name: "웨폰 버라이어티 피날레 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAIH.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
+              name: "칼리",
+              skills: [
+                {
+                  core_name: "헥스 : 샌드스톰",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKGKDPEMA.png",
+                },
+                {
+                  core_name: "아츠 : 플러리 VI/아츠 : 크레센텀 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKGKDPBMA.png",
+                },
+                {
+                  core_name:
+                    "보이드 러쉬 VI/보이드 블리츠 VI/헥스 : 차크람 스플릿 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEKGKDPBMD.png",
+                },
+                {
+                  core_name: "헥스 : 판데모니움 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKI.png",
+                },
+                {
+                  core_name: "보이드 버스트 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAKJ.png",
+                },
+                {
+                  core_name: "아츠 : 아스트라 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALA.png",
+                },
+                {
+                  core_name: "레조네이트 : 얼티메이텀 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKALB.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
+            {
+              name: "호영",
+              skills: [
+                {
+                  core_name: "선기 : 파천황",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJGKDPEMA.png",
+                },
+                {
+                  core_name: "멸화염 : 천 VI/지진쇄 : 지 VI/금고봉 : 인 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJGKDPBOJ.png",
+                },
+                {
+                  core_name: "파초풍 : 천 VI/토파류 : 지 VI/여의선 : 인 VI",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KEJGKDPBPF.png",
+                },
+                {
+                  core_name: "선기 : 극대 분신난무 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAEA.png",
+                },
+                {
+                  core_name: "권술 : 산령소환 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAEB.png",
+                },
+                {
+                  core_name: "선기 : 강림 괴력난신 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAEC.png",
+                },
+                {
+                  core_name: "선기 : 천지인 환영 강화",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHKAED.png",
+                },
+                {
+                  core_name: "솔 야누스",
+                  skill_icon:
+                    "https://open.api.nexon.com/static/maplestory/SkillIcon/KAPCLHPBMA.png",
+                },
+              ],
+            },
           ];
           break;
         default:
           break;
       }
-      // console.log(iconData);
       break;
     }
   }
+  console.log(iconData[found].skills[0].core_name);
+  console.log(coreInfo[0][0]);
 }
