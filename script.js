@@ -26,11 +26,6 @@ function getDate() {
   dateString = "&date=" + year + "-" + month + "-" + (day - 1);
 }
 
-function sleep(ms) {
-  const wakeupTime = Date.now() + ms;
-  while (Date.now() < wakeupTime) {}
-}
-
 function getOcid(nickName) {
   var urlString = url + "v1/id?character_name=" + nickName;
   fetch(urlString, {
@@ -2254,7 +2249,8 @@ function getSkillIcon() {
   for (let i = 0; i < coreInfo.length; i++) {
     for (let j = 0; j < 8; j++) {
       if (iconData[foundIdx].skills[j].core_name === coreInfo[i][0]) {
-        console.log(coreInfo[i][0]);
+        coreInfo[i].push(iconData[foundIdx].skills[j].skill_icon);
+        // console.log(coreInfo[i]);
       }
     }
   }
