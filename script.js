@@ -3,8 +3,9 @@ var charClass;
 var jsonHexa = {};
 var coreInfo = [];
 let iconData;
+let foundIdx;
 const api_keys =
-  "live_2785d54ef3df048746d128e9eddfa161acb6ced01ccf4b2413854d3979798bc4669635cb992e9abcce45cb52ba5e214f";
+  "test_2785d54ef3df048746d128e9eddfa161b9c3b6b2dcc95833692f554efa53d830e1e63a06c989db87d9a7b82b19c139dc";
 var ocid = "";
 const url = "https://open.api.nexon.com/maplestory/";
 //
@@ -16,13 +17,18 @@ const url = "https://open.api.nexon.com/maplestory/";
 // });
 
 getDate();
-getOcid("기솔");
+getOcid("닌방");
 function getDate() {
   var today = new Date();
   var year = today.getFullYear();
   var month = ("0" + (today.getMonth() + 1)).slice(-2);
   var day = ("0" + today.getDate()).slice(-2);
   dateString = "&date=" + year + "-" + month + "-" + (day - 1);
+}
+
+function sleep(ms) {
+  const wakeupTime = Date.now() + ms;
+  while (Date.now() < wakeupTime) {}
 }
 
 function getOcid(nickName) {
@@ -36,7 +42,6 @@ function getOcid(nickName) {
     .then((data) => {
       ocid = data.ocid;
       getClassName();
-      getHexaInfo();
     });
   // .catch((error) => console.log(error));
 }
@@ -50,6 +55,8 @@ function getClassName() {
     .then((res) => res.json())
     .then((data) => {
       charClass = data.character_class;
+
+      getHexaInfo();
     });
 }
 
@@ -79,8 +86,7 @@ function getHexaInfo() {
 }
 
 function getSkillIcon() {
-  var found;
-  const _sort = {
+  const sortData = {
     0: [
       "히어로",
       "팔라딘",
@@ -137,10 +143,9 @@ function getSkillIcon() {
     ],
   };
   for (let i = 0; i < 4; i++) {
-    found = _sort[i].findIndex((e) => e === charClass);
-    if (found >= 0) {
-      var idxCnt = i;
-      switch (idxCnt) {
+    foundIdx = sortData[i].indexOf(charClass);
+    if (foundIdx >= 0) {
+      switch (i) {
         case 0:
           iconData = [
             {
@@ -2244,6 +2249,13 @@ function getSkillIcon() {
       break;
     }
   }
-  console.log(iconData[found].skills[0].core_name);
-  console.log(coreInfo[0][0]);
+
+  console.log(foundIdx);
+  for (let i = 0; i < coreInfo.length; i++) {
+    for (let j = 0; j < 8; j++) {
+      if (iconData[foundIdx].skills[j].core_name === coreInfo[i][0]) {
+        console.log(coreInfo[i][0]);
+      }
+    }
+  }
 }
