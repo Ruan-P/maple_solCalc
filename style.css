@@ -3,8 +3,7 @@
 body{
     background-color: #2e2e2e;
     color: #fff;
-    font-family: 'Pretendard';
-    font-style: serif;
+    font-family: 'Pretendard', serif;
 }
 
 .app{
