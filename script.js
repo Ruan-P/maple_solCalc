@@ -4,20 +4,33 @@ var jsonHexa = {};
 var coreInfo = [];
 let iconData;
 let foundIdx;
+
 const api_keys =
   "test_2785d54ef3df048746d128e9eddfa161b9c3b6b2dcc95833692f554efa53d830e1e63a06c989db87d9a7b82b19c139dc";
 var ocid = "";
 const url = "https://open.api.nexon.com/maplestory/";
-//
-// const button = document.getElementById("search_btn");
-// button.addEventListener("click", function () {
-//   getDate();
-//   getOcid(document.getElementById("name").value);
-//   document.getElementById("name").value = "";
-// });
 
-getDate();
-getOcid("닌방");
+const button = document.getElementById("search_btn");
+button.addEventListener("click", function () {
+  var _Name = document.getElementById("name").value;
+  getDate();
+  getOcid(_Name);
+
+  document.getElementById("name").value = "";
+});
+
+function enterKey(e) {
+  var _Name = document.getElementById("name").value;
+  const code = e.code;
+  if (code === "Enter") {
+    getDate();
+    getOcid(_Name);
+    document.getElementById("name").value = "";
+  }
+}
+
+// getDate();
+// getOcid("닌방");
 function getDate() {
   var today = new Date();
   var year = today.getFullYear();
@@ -56,6 +69,7 @@ function getClassName() {
 }
 
 function getHexaInfo() {
+  coreInfo = [];
   var urlString = url + "v1/character/hexamatrix?ocid=" + ocid + dateString;
   fetch(urlString, {
     headers: {
@@ -75,7 +89,7 @@ function getHexaInfo() {
       });
       console.log(coreInfo);
       getSkillIcon();
-    })
+    });
 }
 
 function getSkillIcon() {
@@ -2248,7 +2262,7 @@ function getSkillIcon() {
     for (let j = 0; j < 8; j++) {
       if (iconData[foundIdx].skills[j].core_name === coreInfo[i][0]) {
         coreInfo[i].push(iconData[foundIdx].skills[j].skill_icon);
-        // console.log(coreInfo[i]);
+        console.log(coreInfo[i]);
       }
     }
   }
