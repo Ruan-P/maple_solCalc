@@ -38,7 +38,6 @@ function getOcid(nickName) {
       ocid = data.ocid;
       getClassName();
     });
-  // .catch((error) => console.log(error));
 }
 function getClassName() {
   var urlString = url + "v1/character/basic?ocid=" + ocid + dateString;
@@ -52,7 +51,8 @@ function getClassName() {
       charClass = data.character_class;
 
       getHexaInfo();
-    });
+    })
+    .catch((error) => console.log(error));
 }
 
 function getHexaInfo() {
@@ -65,7 +65,6 @@ function getHexaInfo() {
     .then((res) => res.json())
     .then((data) => {
       jsonHexa = data;
-      // console.table(data.character_hexa_core_equipment);
       jsonHexa.character_hexa_core_equipment.forEach((data) => {
         var inputData = [
           data.hexa_core_name,
@@ -77,7 +76,6 @@ function getHexaInfo() {
       console.log(coreInfo);
       getSkillIcon();
     })
-    .catch((error) => console.log(error));
 }
 
 function getSkillIcon() {
