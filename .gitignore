@@ -5,3 +5,5 @@
 /test-data
 /icons/todo.md
 /src/icons
+/dist
+/node_modules
