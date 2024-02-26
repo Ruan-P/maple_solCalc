@@ -1,4 +1,5 @@
 // global variables
+const url = "https://open.api.nexon.com/maplestory/";
 var dateString = "";
 var charClass;
 var jsonHexa = {};
@@ -7,12 +8,11 @@ var coreData = [];
 let iconData;
 let foundIdx;
 var _Name;
+var ocid = "";
 
 // api variables
 const api_keys =
   "test_2785d54ef3df048746d128e9eddfa161b9c3b6b2dcc95833692f554efa53d830e1e63a06c989db87d9a7b82b19c139dc";
-var ocid = "";
-const url = "https://open.api.nexon.com/maplestory/";
 
 var nowCollapseEl = document.getElementById("result_page");
 
@@ -33,9 +33,11 @@ function enterKey(e) {
 function reSet() {
   var coreEl = document.querySelector(".now-cores");
   var goalEl = document.querySelector(".goal-cores");
+  var calcEl = document.querySelector(".result-core");
   new bootstrap.Collapse(nowCollapseEl, { hidden: true });
   coreEl.innerHTML = "";
   goalEl.innerHTML = "";
+  calcEl.innerHTML = "";
   ocid = "";
   dateString = "";
   jsonHexa = "";
@@ -2682,7 +2684,7 @@ function drawNowCore() {
 
   for (let index = 0; index < 8; index++) {
     var inEl = document.createElement("div");
-    inEl.className = "col p-1";
+    inEl.className = "col p-1 coreResult";
     inEl.innerHTML =
       "<img src=" +
       coreData[index][2] +
@@ -2704,7 +2706,7 @@ function drawGoalCore() {
 
   for (let index = 0; index < 8; index++) {
     var inEl = document.createElement("div");
-    inEl.className = "col p-1";
+    inEl.className = "col p-1 coreResult";
     inEl.innerHTML =
       "<img src=" +
       coreData[index][2] +
@@ -2716,14 +2718,56 @@ function drawGoalCore() {
 }
 document.getElementById("btn-calc").addEventListener("click", () => {
   new bootstrap.Collapse(nowCollapseEl, { hidden: true });
-  drawCalcPage();
+  startCalc();
 });
-function drawCalcPage() {
+function startCalc() {
+  const calcInputData = [
+    document.getElementById("core0"),
+    document.getElementById("core1"),
+    document.getElementById("core2"),
+    document.getElementById("core3"),
+    document.getElementById("core4"),
+    document.getElementById("core5"),
+    document.getElementById("core6"),
+    document.getElementById("core7"),
+  ];
+  var lvArr = [];
+  calcInputData.forEach((data, index) => {
+    lvArr.push(calcFunc(data.value, index));
+  });
+  console.log(lvArr);
+  drawCalc(lvArr);
+}
+
+function calcFunc(goalLv, coreIdx) {
+  let coreType;
+  switch (coreIdx) {
+    case 0:
+      coreType = "Skills";
+      break;
+    case 1:
+    case 2:
+      coreType = "Mastery";
+      break;
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      coreType = "Boost";
+      break;
+    case 7:
+      coreType = "Common";
+      break;
+    default:
+      break;
+  }
+  let erdaAmount = 0;
+  let shardAmount = 0;
+
   const DB = {
     title: "MapleStory Hexa Skills Requirment Items Calcualtor",
-    "Game Target Version": "KMS 1.2.386",
-    "KMS(T)": true,
-    "Latest Edit": "2024-02-14T14:00+09:00",
+    Game_Target_Version: "KMS 1.2.386",
+    Latest_Edit: "2024-02-14T14:00+09:00",
     Cores: {
       Common: {
         name: "공용 코어",
@@ -3348,4 +3392,28 @@ function drawCalcPage() {
     },
     Developer: "Ninbang @ Scannia/Maplestory(KMS), Ruan-P(GitHub)",
   };
+  let startLv = coreData[coreIdx][1];
+  for (let i = startLv; i <= goalLv - 1; i++) {
+    erdaAmount += DB.Cores[coreType].data[i]["Erda"];
+    shardAmount += DB.Cores[coreType].data[i]["Fragments"];
+  }
+  return [erdaAmount, shardAmount, goalLv];
+}
+
+function drawCalc(data) {
+  var calcEl = document.querySelector(".result-core");
+  calcEl.innerHTML = "";
+
+  for (let index = 0; index < 8; index++) {
+    var inEl = document.createElement("div");
+    inEl.className = "col p-1 coreResult";
+    inEl.innerHTML =
+      `<img src=${coreData[index][2]}> <br> ` +
+      `<span class="badge bg-primary text-white">Lv. ${coreData[index][1]} &rarr; ${data[index][2]} </span> <br>` +
+      "<img src='./src/erda.png' class='erda'>" +
+      `&nbsp;${data[index][0]}개 <br>` +
+      "<img src='./src/erda_shard.png' class='erda'>" +
+      `&nbsp;${data[index][1]}개`;
+    calcEl.appendChild(inEl);
+  }
 }
