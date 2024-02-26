@@ -27,9 +27,15 @@
     input.small{
         width: 60px;
     }
-    /*img{*/
-    /*    width: 20%;*/
-    /*}*/
+    .erda{
+        width: 15%
+    }
+
+    .coreResult{
+        border-radius: 5px;
+        border: 1px grey;
+        border-style: solid;
+    }
   </style>
   <body class="bg-dark">
     <div class="container-fluid text-white text-center p-2">
@@ -74,6 +80,13 @@
           </div>
           <br class="p-1">
           <button class="align-content-center btn btn-primary btn-sm text-white" type="button" id="btn-calc">계산</button>
+        </div>
+        <div class="collapsed container" id="calc-page">
+            <div class="row row-cols-4 row-cols-md-4 result-core" id="result-core">
+
+            </div>
+            <br>
+            <button class="align-content-center btn btn-outline-warning btn-sm text-white" type="button" onclick="window.location.reload()" id="clear-btn">처음부터</button>
         </div>
     </div>
 
