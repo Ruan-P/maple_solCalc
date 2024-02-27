@@ -3393,6 +3393,9 @@ function calcFunc(goalLv, coreIdx) {
     Developer: "Ninbang @ Scannia/Maplestory(KMS), Ruan-P(GitHub)",
   };
   let startLv = coreData[coreIdx][1];
+  if (goalLv >= 30) {
+    goalLv = 30;
+  }
   for (let i = startLv; i <= goalLv - 1; i++) {
     erdaAmount += DB.Cores[coreType].data[i]["Erda"];
     shardAmount += DB.Cores[coreType].data[i]["Fragments"];
