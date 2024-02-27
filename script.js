@@ -10,6 +10,8 @@ let foundIdx;
 var _Name;
 var ocid = "";
 
+var collapseFlag = false;
+
 // api variables
 const api_keys =
   "test_2785d54ef3df048746d128e9eddfa161b9c3b6b2dcc95833692f554efa53d830e1e63a06c989db87d9a7b82b19c139dc";
@@ -18,9 +20,6 @@ var nowCollapseEl = document.getElementById("result_page");
 
 const search_btn = document.getElementById("search_btn");
 search_btn.addEventListener("click", search);
-
-const res_btn = document.getElementById("reset-btn");
-res_btn.addEventListener("click", reSet);
 
 function enterKey(e) {
   _Name = document.getElementById("name").value;
@@ -34,7 +33,8 @@ function reSet() {
   var coreEl = document.querySelector(".now-cores");
   var goalEl = document.querySelector(".goal-cores");
   var calcEl = document.querySelector(".result-core");
-  new bootstrap.Collapse(nowCollapseEl, { hidden: true });
+  collapse();
+
   coreEl.innerHTML = "";
   goalEl.innerHTML = "";
   calcEl.innerHTML = "";
@@ -48,12 +48,19 @@ function reSet() {
 }
 
 function search() {
+  collapseFlag = true;
   if (ocid !== "") {
     reSet();
   }
   _Name = document.getElementById("name").value;
   getDate();
   getOcid(_Name);
+}
+
+function collapse() {
+  if (collapseFlag === true) {
+    new bootstrap.Collapse(nowCollapseEl, { hidden: true });
+  }
 }
 
 function getDate() {
@@ -2696,7 +2703,7 @@ function drawNowCore() {
     coreEl.appendChild(inEl);
   }
 
-  new bootstrap.Collapse(nowCollapseEl, { show: true });
+  collapse();
   drawGoalCore();
 }
 
@@ -2705,6 +2712,12 @@ function drawGoalCore() {
   goalEl.innerHTML = "";
 
   for (let index = 0; index < 8; index++) {
+    let ifStr;
+    if (coreData[index][1] >= 30) {
+      ifStr = `<input class="small" type="hidden" id="core${index}" value=30><span class="badge bg-warning text-white">Lv. 30</span>`;
+    } else {
+      ifStr = `<input class="small" type="number" step="1" max="30" min="${coreData[index][1]}" id="core${index}" value='${coreData[index][1]}'>`;
+    }
     var inEl = document.createElement("div");
     inEl.className = "col p-1 coreResult";
     inEl.innerHTML =
@@ -2712,7 +2725,8 @@ function drawGoalCore() {
       coreData[index][2] +
       "><br>" +
       coreData[index][0] +
-      `<br><input class="small" type="number" step="1" max="30" min="${coreData[index][1]}" id="core${index}" value='${coreData[index][1]}'>`;
+      `<br>` +
+      ifStr;
     goalEl.appendChild(inEl);
   }
 }
@@ -3406,8 +3420,11 @@ function calcFunc(goalLv, coreIdx) {
 function drawCalc(data) {
   var calcEl = document.querySelector(".result-core");
   calcEl.innerHTML = "";
-
+  let erdaSum = 0;
+  let shardSum = 0;
   for (let index = 0; index < 8; index++) {
+    erdaSum += data[index][0];
+    shardSum += data[index][1];
     var inEl = document.createElement("div");
     inEl.className = "col p-1 coreResult";
     inEl.innerHTML =
@@ -3419,4 +3436,14 @@ function drawCalc(data) {
       `&nbsp;${data[index][1]}개`;
     calcEl.appendChild(inEl);
   }
+  console.log(shardSum);
+  var erdaEl = document.querySelector("._erda");
+  erdaEl.innerHTML = `<img src="./src/erda.png" class="erda" >
+                    <br> ${erdaSum}개`;
+
+  var shardEl = document.querySelector("._shard");
+  shardEl.innerHTML += `<img src="./src/erda_shard.png" class="erda">
+                    <br>${shardSum}개`;
 }
+
+function mesoCalc() {}
