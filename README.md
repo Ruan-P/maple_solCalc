@@ -1,3 +1,6 @@
+# 코드 만료로 실행 불가한 프로젝트입니다.
+
+
 # 메이플 6차 솔 에르다/에르다 조각 필요 수량 계산기
 KMS MapleStory Upgrade Requriemts Items Calculator Web Page for Hexa Skills
 
